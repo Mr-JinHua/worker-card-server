@@ -53,7 +53,7 @@ function queryBug(name) {
 				bugD = item[3]
 		}
 	})
-	if(bugD || bugC) {
+	if(bugD>10 || bugC>10) {
 		if(!bugD) {
 			console.log(`提交了${bugC}个bug`)
 			return `提交了${bugC}+个bug`
@@ -75,13 +75,13 @@ function queryBug(name) {
 function queryDep(name){
 	let newData = []
 	let nowdep = null;
-	for(let i=0;i<mesData.length;i++){
-		if(mesData[i][1] === name){
+	for(let i = 0;i < mesData.length; i++) {
+		if(mesData[i][1] === name) {
 			nowdep = mesData[i][1]
 		}
 	}
-	depData.forEach((item)=>{
-		if(item[1] === name && !(newData.includes(item[2]))){
+	depData.forEach((item) => {
+		if(item[1] === name && !(newData.includes(item[2]))) {
 			newData.push(item[2])
 		}
 	})
@@ -96,12 +96,12 @@ function queryAward(name) {
 	}
 	for(let i = 0; i < awardData.length; i++) {
 		if(awardData[i][2] === '荣耀') {
-			if(awardData[i][1] === name) {
+			if(awardData[i][1] === name && awardData[i][3]) {
 				newData.honor.push(awardData[i][3]);
 			}
 		}
 		if(awardData[i][2] === '个人荣誉') {
-			if(awardData[i][1] === name) {
+			if(awardData[i][1] === name && awardData[i][3]) {
 				newData.self.push(awardData[i][3]);
 			}
 		}
