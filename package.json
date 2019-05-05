@@ -13,6 +13,7 @@
     "fs": "0.0.1-security",
     "koa": "^2.7.0",
     "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
     "koa2-cors": "^2.0.6",
     "node-xlsx": "^0.14.1"
   }
