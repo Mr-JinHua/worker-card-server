@@ -3,6 +3,8 @@ const xlsx = require('node-xlsx')
 const fs = require('fs')
 const router = require('koa-router')()
 const cors = require('koa2-cors')
+const path = require('path')
+const statics = require('koa-static')
 
 const app = new Koa()
 
@@ -11,6 +13,12 @@ const mesData = xlsx.parse("./mes/message.xlsx")[0].data
 const bugData = xlsx.parse("./mes/bug.xlsx")[0].data
 const depData = xlsx.parse("./mes/departments.xls")[0].data
 const awardData = xlsx.parse("./mes/honor.xlsx")[0].data
+
+const staticPath = './static'
+
+app.use(statics(
+	path.join(__dirname, staticPath)
+))
 
 app.use(cors({
     origin: function (ctx) {
